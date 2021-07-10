@@ -5,8 +5,8 @@ const Constraint = Matter.Constraint;
 
 var engine, world;
 var backgroundImg;
-
-var bg ;
+var hour;
+var bg;
 
 function preload() {
     // create getBackgroundImg( ) here
@@ -31,7 +31,7 @@ function draw(){
     Engine.update(engine);
 
     // write code to display time in correct format here
-    /*fill("black");
+    fill("black");
     textSize(30);
     if(hour >= 12){
         text("Time: " + hour%12+ "PM", 50,100);
@@ -40,7 +40,6 @@ function draw(){
     }else{
         text("Time: "+ hour%12+ "AM", 50,100);
     }
-    */
 
 
 }
@@ -56,7 +55,7 @@ async function getBackgroundImg(){
     // write code slice the datetime
     var datetime = responseJSON.datetime
 
-    var hour = datetime.slice(11,13)
+    hour = datetime.slice(11,13);
     // add conditions to change the background images from sunrise to sunset
     if(hour >= 04 && hour<= 06){
         bg = "sunrise1.png"
@@ -85,5 +84,5 @@ async function getBackgroundImg(){
     }
 
     //load the image in backgroundImg variable here
-    backgroundImage = loadImage(bg);
+    backgroundImg = loadImage(bg);
 }
